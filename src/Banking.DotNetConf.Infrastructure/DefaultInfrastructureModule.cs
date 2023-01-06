@@ -20,7 +20,9 @@ public class DefaultInfrastructureModule : Module
     {
         _isDevelopment = isDevelopment;
         var coreAssembly = Assembly.GetAssembly(typeof(Project)); // TODO: Replace "Project" with any type from your Core project
+
         var infrastructureAssembly = Assembly.GetAssembly(typeof(StartupSetup));
+
         _assemblies.Add(coreAssembly);
         _assemblies.Add(infrastructureAssembly);
         if (callingAssembly != null)

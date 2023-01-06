@@ -52,7 +52,9 @@ public class AppDbContext : DbContext
         foreach (var entity in entitiesWithEvents)
         {
             var events = entity.Events.ToArray();
+
             entity.Events.Clear();
+
             foreach (var domainEvent in events)
             {
                 await _mediator.Publish(domainEvent).ConfigureAwait(false);
